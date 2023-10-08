@@ -1,17 +1,21 @@
+// 对ES6内置API做兼容处理
+// import 'react-app-polyfill/stable'
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import '@/index.less';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <div>学习react</div>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+fetch('/jian/subscriptions/recommended_collections')
+.then(res => res.json())
+.then(value => console.log(value))
+
+fetch('/zhi/news/latest')
+.then(res => res.json())
+.then(value => console.log(value))
